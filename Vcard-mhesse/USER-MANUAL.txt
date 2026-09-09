@@ -1,7 +1,7 @@
 Your digital business card
 ==========================
 
-Card owner: Marc Hess
+Card owner: Marc Hesse
 Hosted card URL: https://quiksoft.github.io/vCard-Studio/Vcard-mhesse/
 This QR code opens the hosted website. The recipient then chooses Save contact. It is not an NFC card or a payment card. Replace the example URL and publish the website before sharing.
 Included files: index.html (website), .vcf (contact), qr.png (phone-friendly image), qr.svg (print vector), USER-MANUAL.html and USER-MANUAL.txt (this guide), and card.json (public editable card data).
