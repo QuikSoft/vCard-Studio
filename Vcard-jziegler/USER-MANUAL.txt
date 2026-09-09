@@ -1,0 +1,57 @@
+Your digital business card
+==========================
+
+Card owner: Jan Ziegler
+Hosted card URL: https://quiksoft.github.io/vCard-Studio/Vcard-jziegler/
+This QR code opens the hosted website. The recipient then chooses Save contact. It is not an NFC card or a payment card. Replace the example URL and publish the website before sharing.
+Included files: index.html (website), .vcf (contact), qr.png (phone-friendly image), qr.svg (print vector), USER-MANUAL.html and USER-MANUAL.txt (this guide), and card.json (public editable card data).
+
+1. Keep your QR code on your phone
+==================================
+
+Extract the ZIP first. Transfer qr.png to your phone using your preferred file transfer method.
+iPhone: open the image in Files, use Share, then Save Image if offered. Find it in Photos and mark it as a favourite.
+Android: save qr.png to your device and open it in your Gallery or Photos app. Mark it as a favourite if available.
+To share in person, display the complete QR image at a comfortable size, increase screen brightness and let the other person scan it. Keep the white border visible. You can show a saved image offline, but opening the website needs internet access.
+If the code is on the same phone, simply open the hosted card URL above instead of trying to scan your own screen.
+
+2. Scan and save a contact on iPhone
+====================================
+
+Open Camera in Photo mode and point it at the QR code on another screen or on paper. Tap the website link that appears. On the card webpage, tap Save contact. Open the downloaded .vcf if prompted, review the details, and use the available option to create or add the contact, then confirm. Menu wording varies by iOS version and the app opening the file.
+If the browser only downloads a file, locate the .vcf in Files/Downloads and open or share it with a contacts-capable app. Scanning alone does not add the person to Contacts.
+Apple scanning instructions: https://support.apple.com/en-gb/102680
+
+3. Scan and save a contact on Android
+=====================================
+
+Point your phone camera at the QR code and tap the detected link. If your camera does not recognise it, use the phone's QR scanner or Google Lens where available. On the webpage, tap Save contact. Open the downloaded .vcf and follow your Contacts app's import prompts.
+In Google Contacts, you can also use Organise > Import from file, choose an account when prompted, and select the .vcf. Names and menus differ between phone manufacturers. Review the imported details.
+Google contact import instructions: https://support.google.com/contacts/answer/1069522?co=GENIE.Platform%3DAndroid&hl=en
+
+4. Add the QR to Google Wallet (Android)
+========================================
+
+Where image-based passes are supported, open Google Wallet and choose Add to Wallet > Photo, or Everything Else. Select the included qr.png image. Review any consent prompts and the detected information, enter a name such as My business card, then choose Add or Save.
+Open the saved pass and let another phone scan its QR code. Check that it opens exactly your hosted card URL above: Wallet may redraw the code, so verify its destination rather than its appearance.
+Options and eligibility vary by region, device and Wallet version; the Everything Else photo flow is not available in India according to the linked help. If Wallet cannot recognise or accept this URL QR, keep qr.png in Photos/Gallery instead. A Wallet pass does not import your contact into Contacts.
+Google Wallet instructions: https://support.google.com/wallet/answer/12060038?hl=en
+
+5. Add the QR to Apple Wallet (iPhone)
+======================================
+
+This package contains a QR image and a contact file, not an Apple Wallet pass. The Apple-supported pass flow uses an Add to Apple Wallet action from a pass provider. Renaming qr.png or the .vcf to .pkpass will not create a working pass.
+To use that route, obtain a compatible pass from your organisation or a pass-creation app/service that supports QR codes with website URLs. Set its QR payload to the exact hosted card URL above, name the pass, and follow the provider's Add to Apple Wallet action. Review it and tap Add. Open Wallet, select the pass, and test it by scanning with a second phone.
+A pass-creation service is separate from vCard Studio and may charge a fee or receive the information you submit. This app does not supply a signed .pkpass or a direct Add to Apple Wallet button. If your iOS version offers another supported pass-creation option, follow its on-screen guidance and verify the resulting URL.
+The simple alternative is to keep qr.png in Photos, or bookmark the hosted card in Safari.
+Apple Wallet instructions: https://support.apple.com/en-gb/guide/iphone/iphe7aa3336/ios
+
+6. Troubleshooting and updates
+==============================
+
+Website not found: confirm deployment is complete and that the QR URL matches the public webpage, including the repository path and spelling.
+Code will not scan: show the whole image with its white margin, increase brightness and reduce glare. Try the original PNG. If a logo prevents scanning, export again with the centre logo disabled.
+Details changed: update the hosted card at the same URL; the existing URL QR still opens it. Contacts already imported on other phones are not automatically updated.
+URL changed: regenerate the QR image and replace every saved image or Wallet pass using the old URL.
+Wallet option missing: use Photos/Gallery or a browser bookmark. No wallet service is required to share your card.
+Instructions checked on 9 September 2026. Platform menus and availability can change; consult the official links for updates.
