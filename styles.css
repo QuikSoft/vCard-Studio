@@ -7,3 +7,5 @@
 .qr-artwork>img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain}
 
 [hidden]{display:none!important}.publish-dialog{width:calc(100% - 32px);max-width:620px;max-height:90vh;overflow:auto}.publish-dialog input{min-width:0}.publish-dialog p{overflow-wrap:anywhere}.publish-offer{margin-top:25px;padding:18px 0}.publish-dialog #publish-status{font-size:14px;color:#344054}.publish-dialog .dialog-actions{justify-content:space-between}
+
+.url-prefix{display:block;padding:12px;background:#f2f5f7;border-radius:6px;overflow-wrap:anywhere;font-size:14px}input[readonly]{background:#f2f5f7!important;color:#536174!important}

@@ -1,5 +1,5 @@
-import {manualHTML,manualText} from './manual.js?v=20260909-urls1';
-import {syncDestination,defaults,cardMarkup,escapeHTML,qrSVG,qrPosterSVG,slug,vcard,download} from './core.js?v=20260909-urls1';
+import {manualHTML,manualText} from './manual.js?v=20260909-prefix1';
+import {syncDestination,defaults,cardMarkup,escapeHTML,qrSVG,qrPosterSVG,slug,vcard,download} from './core.js?v=20260909-prefix1';
 export async function pageHTML(d){const css=await fetch(new URL('./styles.css',import.meta.url)).then(r=>{if(!r.ok)throw Error('Could not load card styles.');return r.text();});return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHTML(d.first+' '+d.last)} — Digital business card</title><style>${css}</style></head><body class="standalone">${cardMarkup(d)}</body></html>`;}
 export async function png(d){const img=new Image();img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(qrPosterSVG(d));await img.decode();const c=document.createElement('canvas');c.width=1100;c.height=d.caption?1320:1100;const ctx=c.getContext('2d');ctx.drawImage(img,0,0,c.width,c.height);return new Promise((resolve,reject)=>c.toBlob(b=>b?resolve(b):reject(Error('Could not render QR image.')),'image/png'));}
 // Uncompressed ZIP writer: no network, build step, or third-party archive dependency.
