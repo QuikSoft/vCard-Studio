@@ -1,5 +1,5 @@
-import {manualHTML,manualText} from './manual.js?v=20260909-folders1';
-import {defaults,cardMarkup,escapeHTML,qrSVG,qrPosterSVG,slug,vcard,download} from './core.js?v=20260909-folders1';
+import {manualHTML,manualText} from './manual.js?v=20260909-urls1';
+import {syncDestination,defaults,cardMarkup,escapeHTML,qrSVG,qrPosterSVG,slug,vcard,download} from './core.js?v=20260909-urls1';
 export async function pageHTML(d){const css=await fetch(new URL('./styles.css',import.meta.url)).then(r=>{if(!r.ok)throw Error('Could not load card styles.');return r.text();});return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHTML(d.first+' '+d.last)} — Digital business card</title><style>${css}</style></head><body class="standalone">${cardMarkup(d)}</body></html>`;}
 export async function png(d){const img=new Image();img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(qrPosterSVG(d));await img.decode();const c=document.createElement('canvas');c.width=1100;c.height=d.caption?1320:1100;const ctx=c.getContext('2d');ctx.drawImage(img,0,0,c.width,c.height);return new Promise((resolve,reject)=>c.toBlob(b=>b?resolve(b):reject(Error('Could not render QR image.')),'image/png'));}
 // Uncompressed ZIP writer: no network, build step, or third-party archive dependency.
@@ -7,7 +7,7 @@ export function zip(files){const encoder=new TextEncoder();let offset=0;const ch
 export async function exportCard(d,kind){const name=slug(d);if(kind==='vcf')download(vcard(d),name+'.vcf','text/vcard;charset=utf-8');if(kind==='svg')download(qrPosterSVG(d),name+'-qr.svg','image/svg+xml');if(kind==='png')download(await png(d),name+'-qr.png','image/png');if(kind==='html')download(await pageHTML(d),name+'.html','text/html');if(kind==='zip')download(zip(await cardFiles(d)),name+'-website.zip','application/zip');}
 
 export function editableCard(d){return Object.fromEntries(Object.keys(defaults).map(k=>[k,typeof d[k]===typeof defaults[k]?d[k]:defaults[k]]));}
-export async function cardFiles(d){return {'index.html':await pageHTML(d),'contact.vcf':vcard(d),'qr.svg':qrPosterSVG(d),'qr.png':new Uint8Array(await (await png(d)).arrayBuffer()),'card.json':JSON.stringify({format:'vcard-studio-1',card:editableCard(d)},null,2),'USER-MANUAL.html':manualHTML(d),'USER-MANUAL.txt':manualText(d),'.nojekyll':'','README.md':`# Digital business card
+export async function cardFiles(d){d=syncDestination({...d});return {'index.html':await pageHTML(d),'contact.vcf':vcard(d),'qr.svg':qrPosterSVG(d),'qr.png':new Uint8Array(await (await png(d)).arrayBuffer()),[slug(d)+'-draft.json']:JSON.stringify(editableCard(d),null,2),'card.json':JSON.stringify({format:'vcard-studio-1',card:editableCard(d)},null,2),'USER-MANUAL.html':manualHTML(d),'USER-MANUAL.txt':manualText(d),'.nojekyll':'','README.md':`# Digital business card
 
 Published URL: ${d.publicUrl}
 

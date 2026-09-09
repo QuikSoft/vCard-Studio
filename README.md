@@ -101,3 +101,13 @@ The editable published data is **public**, just like the contact details and ima
 Refreshing the creator clears the current published-card association. Use Edit published card again to resume an update. Download website ZIP still exports the complete card package, including editable card.json, QR PNG/SVG and the user manuals. A downloaded card.json can also be opened through Open a saved draft.
 
 Folder publishing/editing has automated API-mock coverage (24 checks in total). The actual GitHub authorization, browser UI and live deployment have not been exercised in this session.
+
+## Consistent folder URLs and named drafts
+
+The QR step now defaults to folder mode with Repository owner, Repository name and Card folder fields. The read-only URL is calculated from those fields, including the repository path and the exact Vcard- capitalization. For example, owner quiksoft, repository vCard-Studio and folder Vcard-jjvlebon produce https://quiksoft.github.io/vCard-Studio/Vcard-jjvlebon/. Choose Custom website URL for a separate website instead.
+
+Older Quiksoft drafts with root-level vcard-name URLs are migrated to the vCard-Studio/Vcard-name/ address when opened. Check the displayed folder against the folder actually published. Publish to card folder uses these same fields. The separate-repository option intentionally produces a different URL.
+
+Every full card ZIP and folder publication now contains name-draft.json alongside card.json. Both contain the supported public card fields and images, never credentials. Either can be reopened through Open a saved draft. The build includes named draft JSON files in Vcard- folders, so do not place private drafts in public card folders. Existing published files require an update/republication to receive the named draft file. Separate-repository publication also saves the named draft and card.json.
+
+27 automated checks pass, including path preservation, migration, named draft ZIP inclusion and QR changes when the folder changes. Six supplied QR images were decoded; three used root-level URLs and three already had the repository path. Replacement PNGs were generated and decoded back to the expected full URLs. No live repositories were changed.
