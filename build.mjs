@@ -10,4 +10,3 @@ for(const folder of await readdir(source,{withFileTypes:true})){if(!folder.isDir
 for(const file of files){const target=path.join(destination,file);await mkdir(path.dirname(target),{recursive:true});await copyFile(path.join(source,file),target);}
 await writeFile(path.join(destination,'.nojekyll'),'');
 console.log(`Prepared ${files.length + 1} static files in ${destination}`);
-
